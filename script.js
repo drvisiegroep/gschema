@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         let textareas = document.querySelectorAll('.schema-input');
         let entries = {};
         textareas.forEach(textarea => {
-            entries[textarea.dataset.kenmerk] = textarea.value
+            entries[textarea.dataset.kenmerk] = strip(textarea.value)
         });
         return JSON.stringify(entries)
     }
@@ -40,6 +40,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
     function removeItem(name) {
         localStorage.removeItem(name)
     }
+
+    function strip(html){
+        let doc = new DOMParser().parseFromString(html, 'text/html');
+        return doc.body.textContent || "";
+     }
 
     function listSavedEntries() {
         const items = {...localStorage}
@@ -74,8 +79,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
         } else {
             return false 
         }
-
-        
     }
 
     // TODO:
