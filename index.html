@@ -8,14 +8,23 @@
     <title>G-Schema</title>
   </head>
   <body>
+
     <div class="popup">
+      <div class="message"></div>
+      <h2>Geef je schema een naam.</h2>
       <input type="text" name="schema-naam" id="schema-naam" />
       <div class="buttons">
         <div class="save-btn btn">Opslaan</div>
         <div class="list-btn btn">Mijn schema's</div>
+        <div class="clearall-btn btn">
+          <div class="loader"></div>
+          <span>Verwijder alles</span>
+        </div>
       </div>
     </div>
+    <div class="popup-overlay"></div>
     <div class="schema-lijst"></div>
+    <div class="launch-save-popup btn">Opslaan</div>
     <div class="container">
       <div class="arrow grid-item arrow-top-left">
         <div class="arrow-desktop">
@@ -71,6 +80,8 @@
         </div>
       </div>
     </div>
+
+
 
     <script src="script.js"></script>
   </body>
