@@ -1,19 +1,27 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(/fonts/Roboto/Roboto-regular.ttf);
+}
+
 :root {
     --first-color: #e4f1fe; 
     --second-color: #8dc6ff; 
     --third-color: #22313f; 
     --fourth-color: #34495e; 
+    --main-font: 'Roboto';
     --default-border-radius: 10px;
     --default-container-gap: 20px;
     --default-padding:16px;
+    --default-animation: all 0.3s ease;
 }
 
 * {box-sizing:border-box}
-body{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh}
+body{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh;font-family: var(--main-font)}
 
 .popup input {width: 100%;}
 .popup .buttons{display:flex;flex-direction:row;flex-wrap:wrap;gap:var(--default-container-gap)}
-.popup .save-btn, .popup .list-btn {background-color: var(--second-color);padding: 10px 20px;cursor:pointer;}
+.btn {background-color: var(--second-color);padding: 10px 20px;cursor:pointer;transition: var(--default-animation)}
+.btn:hover{background-color:var(--fourth-color);color:#fff;transition: var(--default-animation);}
 
 .container { 
     display:grid;
@@ -28,6 +36,9 @@ body{display:flex;flex-direction:column;justify-content:center;align-items:cente
 
 textarea {width: 100%;height:100%;border-radius:var(--default-padding);padding:var(--default-padding);resize:vertical;border:none;}
 textarea:focus-visible{outline: 2px solid var(--third-color);border: none;}
+textarea.error {border: 2px solid red}
+textarea.error:focus-visible{outline: 2px solid red;border: none;}
+
 
 .arrow img, .heart img{max-height:100px;}
 .arrow-desktop{display:none;}
