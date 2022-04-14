@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Roboto';
-    src: url(fonts/Roboto/Roboto-regular.ttf);
+    src: url(../gschema/fonts/Roboto/Roboto-regular.ttf) format('truetype');
 }
 
 :root {
