@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Roboto;
+    src: url("fonts/Roboto/Roboto-Regular.ttf") format('truetype');
+}
+
 :root {
     --first-color: #e4f1fe; 
     --second-color: #8dc6ff; 
