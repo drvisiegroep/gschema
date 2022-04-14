@@ -7,9 +7,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const savePopupOverlay = document.querySelector(".popup-overlay");
   const schemaLijst = document.querySelector(".schema-lijst");
   let timeOut
+
+
   listBtn.addEventListener("click", () => {
     listSavedEntries();
   });
+
 
   launchSavePopupBtn.addEventListener("click", () => {
     if (schemaValidation() == false) {
@@ -19,23 +22,29 @@ window.addEventListener("DOMContentLoaded", (event) => {
     savePopupOverlay.classList.add("active");
   });
 
+
   savePopupOverlay.addEventListener("click", () => {
     savePopup.classList.remove("active");
     savePopupOverlay.classList.remove("active");
   });
+
 
   clearAllBtn.addEventListener("mouseup", () => {
     clearTimeout(timeOut);
     return
   });
 
+
   clearAllBtn.addEventListener("mousedown", () => {
     console.log('first')
     timeOut = window.setTimeout(() => {
         clearAll();
+        listSavedEntries();
+        //Timeout moet gelijk zijn aan de transition voor de button in de css
     },2000);
     return;
   });
+
 
   saveBtn.addEventListener("click", () => {
     if (schemaValidation() == false) {
@@ -45,6 +54,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     listSavedEntries();
   });
 
+
   schemaLijst.addEventListener("click", function (e) {
     if (e.target && e.target.className == "remove-btn btn") {
       const itemDataName = e.target.parentNode.dataset.name;
@@ -53,9 +63,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
     }
   });
 
+
   function clearAll() {
     localStorage.clear();
   }
+
 
   function deleteConfirmation() {}
 
@@ -68,19 +80,23 @@ window.addEventListener("DOMContentLoaded", (event) => {
     return JSON.stringify(entries);
   }
 
+
   function saveName() {
     const saveName = document.querySelector("#schema-naam").value;
     return saveName;
   }
 
+
   function removeItem(name) {
     localStorage.removeItem(name);
   }
+
 
   function strip(html) {
     let doc = new DOMParser().parseFromString(html, "text/html");
     return doc.body.textContent || "";
   }
+
 
   function listSavedEntries() {
     const items = { ...localStorage };
@@ -96,9 +112,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
     schemaLijst.innerHTML = list;
   }
 
+
   function saveItem(name) {
     localStorage.setItem(name, serializeEntries());
   }
+
 
   function schemaValidation() {
     const textareas = document.querySelectorAll(".schema-input");
@@ -120,8 +138,5 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 
   // TODO:
-  // 1. Functie om te checken of de velden niet leeg zijn
-  // 2. button om alles te wissen
-  // 3. popup maken voor saven
-  // 4. HTML / CSS aanpassen voor card slider
+  // - HTML / CSS aanpassen voor card slider
 });

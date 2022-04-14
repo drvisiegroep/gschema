@@ -26,6 +26,7 @@ body{display:flex;flex-direction:column;justify-content:center;align-items:cente
 .popup .buttons{display:flex;flex-direction:row;flex-wrap:wrap;gap:var(--default-container-gap)}
 .popup-overlay{display: none;}
 .popup-overlay.active{cursor:pointer;display:block;position: absolute;top: 0;left: 0;right: 0;width: 100%;height: 100%;background-color: var(--fourth-color);opacity: 0.4;z-index: 1;}
+
 .btn {background-color: var(--second-color);padding: 10px 20px;cursor:pointer;transition: var(--default-animation)}
 .btn:hover{background-color:var(--fourth-color);color:#fff;transition: var(--default-animation);}
 .clearall-btn.btn {color:#fff;position:relative;background-color: #f44336;}
