@@ -40,7 +40,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 
   clearAllBtn.addEventListener("mousedown", () => {
-    console.log("first");
     timeOut = window.setTimeout(() => {
       clearAll();
       listSavedEntries();
@@ -143,5 +142,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 
   // TODO:
-  // - HTML / CSS aanpassen voor card slider
+  // - HTML / CSS aanpassen voor card slider (desktop / mobiel)
+  // - Bericht weergeven als er geen opgeslagen items zijn.
+  // - berichtenlijst een close button geven
+  // - betere popup verzinnen voor de opgeslagen lijst?
+  // - 
 });
