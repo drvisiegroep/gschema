@@ -9,7 +9,7 @@
   </head>
   <body>
 
-    <div class="popup">
+    <!-- <div class="popup">
       <div class="popup-wrap">
       <div class="message"></div>
       <h2>Geef je schema een naam.</h2>
@@ -81,8 +81,59 @@
           <img src="assets/svg/down-long-solid.svg" alt="arrow" />
         </div>
       </div>
-    </div>
+    </div> -->
 
+
+    <div class="items">
+      <div class="item active">
+        <div class="gebeurtenis grid-item">
+          <h2>Gebeurtenis</h2>
+          <textarea class="schema-input" name="gebeurtenis-input" id="gebeurtenis-input" data-kenmerk="gebeurtenis"></textarea>
+        </div>
+      </div>
+      <div class=" item next">
+        <div class="gedachte grid-item">
+          <h2>Gedachte</h2>
+          <textarea  class="schema-input" name="gedachte-input" id="gedachte-input" data-kenmerk="gedachte"></textarea>
+        </div>
+      </div>
+      <div class="item">
+        <div class="gevoel grid-item">
+          <h2>Gevoel</h2>
+          <textarea  class="schema-input" name="gevoel-input" id="gevoel-input" data-kenmerk="gevoel"></textarea>
+        </div>
+      </div>
+      <div class="item">
+        <div class="gedrag grid-item">
+          <h2>Gedrag</h2>
+          <textarea  class="schema-input" name="gedrag-input" id="gedrag-input" data-kenmerk="gedrag"></textarea>
+        </div>
+      </div>
+      <div class="item prev">
+        <div class="popup">
+          <div class="popup-wrap">
+          <div class="message"></div>
+          <h2>Geef je schema een naam.</h2>
+          <input type="text" name="schema-naam" id="schema-naam" />
+          <div class="schema-lijst"></div>
+          <div class="buttons">
+            <div class="save-btn btn">Opslaan</div>
+            <div class="list-btn btn">Mijn schema's</div>
+            <div class="clearall-btn btn">
+              <div class="loader"></div>
+              <span>Verwijder alles</span>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="popup-overlay"></div>
+        <div class="launch-save-popup btn">Opslaan</div>
+      </div>
+      <div class="button-container">
+        <div class="button"><i class="fas fa-angle-left"></i></div>
+        <div class="button"><i class="fas fa-angle-right"></i></div>
+      </div>
+    </div>
 
 
     <script src="script.js"></script>
