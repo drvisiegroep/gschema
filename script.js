@@ -4,11 +4,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
   //
   const listBtn = document.querySelector(".list-btn");
   const saveBtn = document.querySelector(".save-btn");
+  const closePopupBtn = document.querySelector(".close-popup");
+  const closeLijstBtn = document.querySelector(".close-lijst");
   const clearAllBtn = document.querySelector(".clearall-btn");
   const launchSavePopupBtn = document.querySelector(".launch-save-popup");
   const savePopup = document.querySelector(".popup");
   const savePopupOverlay = document.querySelector(".popup-overlay");
-  const schemaLijst = document.querySelector(".schema-lijst");
+  const schemaLijst = document.querySelector(".schema-lijst-container");
   let timeOut;
 
 
@@ -29,6 +31,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 
   savePopupOverlay.addEventListener("click", () => {
+    savePopup.classList.remove("active");
+    savePopupOverlay.classList.remove("active");
+    schemaLijst.classList.remove('active');
+  });
+  
+  closePopupBtn.addEventListener("click", () => {
     savePopup.classList.remove("active");
     savePopupOverlay.classList.remove("active");
     schemaLijst.classList.remove('active');
