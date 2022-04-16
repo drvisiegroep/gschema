@@ -11,25 +11,26 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const savePopup = document.querySelector(".popup");
   const message = document.querySelector(".message");
   const savePopupOverlay = document.querySelector(".popup-overlay");
-  const schemaLijstContainer = document.querySelector(".schema-lijst-container");
+  const schemaLijstContainer = document.querySelector(
+    ".schema-lijst-container"
+  );
   const schemaLijst = document.querySelector(".schema-lijst");
   let timeOut;
-
 
   //
   // Eventlisteners
   //
   listBtn.addEventListener("click", () => {
-    schemaLijstContainer.classList.toggle('active');
+    schemaLijstContainer.classList.toggle("active");
     listSavedEntries();
   });
 
   launchSavePopupBtn.addEventListener("click", () => {
     if (schemaValidation() == false) {
-      popupMessage("Een of meerder velden zijn niet goed ingevuld.")
+      popupMessage("Een of meerder velden zijn niet goed ingevuld.");
       return false;
     }
-    message.classList.remove('active')
+    message.classList.remove("active");
     savePopup.classList.add("active");
     savePopupOverlay.classList.add("active");
   });
@@ -37,18 +38,18 @@ window.addEventListener("DOMContentLoaded", (event) => {
   savePopupOverlay.addEventListener("click", () => {
     savePopup.classList.remove("active");
     savePopupOverlay.classList.remove("active");
-    schemaLijstContainer.classList.remove('active');
+    schemaLijstContainer.classList.remove("active");
   });
-  
+
   closePopupBtn.addEventListener("click", () => {
     savePopup.classList.remove("active");
     savePopupOverlay.classList.remove("active");
-    schemaLijstContainer.classList.remove('active');
+    schemaLijstContainer.classList.remove("active");
   });
 
   closeLijstBtn.addEventListener("click", () => {
-    schemaLijstContainer.classList.remove('active');
-  })
+    schemaLijstContainer.classList.remove("active");
+  });
 
   clearAllBtn.addEventListener("mouseup", () => {
     clearTimeout(timeOut);
@@ -69,8 +70,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
       return false;
     }
     saveItem(saveName());
-    
-    
   });
 
   schemaLijst.addEventListener("click", function (e) {
@@ -81,13 +80,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
     }
   });
 
-
   //
   // Functions
   //
 
   function popupMessage(text) {
-    message.classList.add('active');
+    message.classList.add("active");
     message.textContent = text;
   }
   function clearAll() {
@@ -121,19 +119,23 @@ window.addEventListener("DOMContentLoaded", (event) => {
   function listSavedEntries() {
     const items = { ...localStorage };
 
-    list = "";
+    if (Object.keys(items).length !== 0) {
+      list = "";
 
-    for (const [itemName, value] of Object.entries(items)) {
-      list += `<div class="schema-item" data-name="${itemName}"><h2>${itemName}</h2>`;
+      for (const [itemName, value] of Object.entries(items)) {
+        list += `<div class="schema-item" data-name="${itemName}"><h2>${itemName}</h2>`;
 
-      for (const [kenmerk, entry] of Object.entries(JSON.parse(value))) {
-        list += `<p><strong>${kenmerk}</strong>: ${entry}</p>`;
+        for (const [kenmerk, entry] of Object.entries(JSON.parse(value))) {
+          list += `<p><strong>${kenmerk}</strong>: ${entry}</p>`;
+        }
+
+        list += `<div class="remove-btn btn">Verwijder item</div></div>`;
       }
 
-      list += `<div class="remove-btn btn">Verwijder item</div></div>`;
+      schemaLijst.innerHTML = list;
+    } else {
+      schemaLijst.textContent = "Je hebt nog geen lijsten opgeslagen.";
     }
-
-    schemaLijst.innerHTML = list;
   }
 
   function saveItem(name) {
@@ -172,7 +174,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
   // Slidertest
   //
 
-
   const slider = document.querySelector(".items");
   const slides = document.querySelectorAll(".item");
   const button = document.querySelectorAll(".button");
@@ -182,14 +183,17 @@ window.addEventListener("DOMContentLoaded", (event) => {
   let next = 1;
 
   for (let i = 0; i < button.length; i++) {
-    button[i].addEventListener("click", () => i == 0 ? gotoPrev() : gotoNext());
+    button[i].addEventListener("click", () =>
+      i == 0 ? gotoPrev() : gotoNext()
+    );
   }
 
-  const gotoPrev = () => current > 0 ? gotoNum(current - 1) : gotoNum(slides.length - 1);
+  const gotoPrev = () =>
+    current > 0 ? gotoNum(current - 1) : gotoNum(slides.length - 1);
 
-  const gotoNext = () => current < 4 ? gotoNum(current + 1) : gotoNum(0);
+  const gotoNext = () => (current < 4 ? gotoNum(current + 1) : gotoNum(0));
 
-  const gotoNum = number => {
+  const gotoNum = (number) => {
     current = number;
     prev = current - 1;
     next = current + 1;
@@ -211,9 +215,5 @@ window.addEventListener("DOMContentLoaded", (event) => {
     slides[current].classList.add("active");
     slides[prev].classList.add("prev");
     slides[next].classList.add("next");
-  }
-
-
-
-  
+  };
 });

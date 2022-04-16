@@ -45,7 +45,7 @@ body{font-family: var(--main-font);overflow:hidden;}
 .clearall-btn.btn:active span{color:fff}
 
 .schema-lijst-container{display:none;}
-.schema-lijst-container.active{display:flex;flex-direction:column;position:absolute;background-color:#fff;padding:40px 16px 16px 16px;border-radius:var(--default-border-radius);border:2px solid var(--third-color);z-index:2;gap: var(--default-container-gap);max-height: 350px;overflow-y: scroll;width: 320px;top: 80px;overflow: hidden;}
+.schema-lijst-container.active{display:flex;flex-direction:column;position:absolute;background-color:#fff;padding:40px 16px 16px 16px;border-radius:var(--default-border-radius);border:2px solid var(--third-color);z-index:11;gap: var(--default-container-gap);max-height: 350px;width: 320px;top: 80px;overflow: hidden;}
 .schema-lijst-container h2{margin-top:0}
 .schema-lijst{overflow-y:scroll;display:flex;flex-direction:column;gap:var(--default-container-gap)}
 .schema-lijst .schema-item {background-color:var(--first-color);padding:var(--default-padding);border-radius: var(--default-border-radius);}
@@ -71,3 +71,13 @@ textarea.error:focus-visible{outline: 2px solid red;border: none;}
 .button-container .button img {height:50px}
 .button-container .button:nth-child(1) {float: left;} 
 .button-container .button:nth-child(2) {float: right;}
+
+/* 
+TODO: 
+- Betere indeleding html voor berichten popup etc.
+- container buttons vallen over popup heen omdat pupup in grid-item zit?
+- scrollbar doordat grid-item translate naar rechts. overflow hidden helpt niet, fix voor vinden.
+- betere manier message popup ? een popup voor alle feedback of meerdere per container?
+- opslaan tiussen de buttons en 5e grid-item weghalen?
+
+*/
