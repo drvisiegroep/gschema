@@ -18,7 +18,7 @@
 }
 
 * {box-sizing:border-box}
-body{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh;font-family: var(--main-font)}
+body{display:flex;flex-direction:column;justify-content:center;align-items:center;font-family: var(--main-font)}
 
 .popup {display:none}
 .popup.active{display:flex;position:relative;background-color:#fff;padding:32px;border-radius:var(--default-border-radius);border:2px solid var(--fourth-color);z-index: 2;flex-direction: column;}
