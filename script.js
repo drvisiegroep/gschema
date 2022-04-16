@@ -26,8 +26,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   launchSavePopupBtn.addEventListener("click", () => {
     if (schemaValidation() == false) {
+      popupMessage("Een of meerder velden zijn niet goed ingevuld.")
       return false;
     }
+    message.classList.remove('active')
     savePopup.classList.add("active");
     savePopupOverlay.classList.add("active");
   });
@@ -67,7 +69,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
       return false;
     }
     saveItem(saveName());
-    listSavedEntries();
+    
+    
   });
 
   schemaLijst.addEventListener("click", function (e) {
@@ -82,6 +85,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
   //
   // Functions
   //
+
+  function popupMessage(text) {
+    message.classList.add('active');
+    message.textContent = text;
+  }
   function clearAll() {
     localStorage.clear();
   }
