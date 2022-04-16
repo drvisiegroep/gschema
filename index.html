@@ -1,61 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>G-Schema</title>
-  </head>
-  <body>
 
-    <div class="items">
-      <div class="item active">
-        <div class="gebeurtenis grid-item">
-          <h2>Gebeurtenis</h2>
-          <textarea
-            class="schema-input"
-            name="gebeurtenis-input"
-            id="gebeurtenis-input"
-            data-kenmerk="gebeurtenis"
-          ></textarea>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>G-Schema</title>
+</head>
+
+<body>
+
+  <div class="items">
+    <div class="item active">
+      <div class="gebeurtenis grid-item">
+        <h2>Gebeurtenis</h2>
+        <textarea class="schema-input" name="gebeurtenis-input" id="gebeurtenis-input"
+          data-kenmerk="gebeurtenis"></textarea>
       </div>
-      <div class="item next">
-        <div class="gedachte grid-item">
-          <h2>Gedachte</h2>
-          <textarea
-            class="schema-input"
-            name="gedachte-input"
-            id="gedachte-input"
-            data-kenmerk="gedachte"
-          ></textarea>
-        </div>
+    </div>
+    <div class="item next">
+      <div class="gedachte grid-item">
+        <h2>Gedachte</h2>
+        <textarea class="schema-input" name="gedachte-input" id="gedachte-input" data-kenmerk="gedachte"></textarea>
       </div>
-      <div class="item">
-        <div class="gevoel grid-item">
-          <h2>Gevoel</h2>
-          <textarea
-            class="schema-input"
-            name="gevoel-input"
-            id="gevoel-input"
-            data-kenmerk="gevoel"
-          ></textarea>
-        </div>
+    </div>
+    <div class="item">
+      <div class="gevoel grid-item">
+        <h2>Gevoel</h2>
+        <textarea class="schema-input" name="gevoel-input" id="gevoel-input" data-kenmerk="gevoel"></textarea>
       </div>
-      <div class="item">
-        <div class="gedrag grid-item">
-          <h2>Gedrag</h2>
-          <textarea
-            class="schema-input"
-            name="gedrag-input"
-            id="gedrag-input"
-            data-kenmerk="gedrag"
-          ></textarea>
-        </div>
+    </div>
+    <div class="item">
+      <div class="gedrag grid-item">
+        <h2>Gedrag</h2>
+        <textarea class="schema-input" name="gedrag-input" id="gedrag-input" data-kenmerk="gedrag"></textarea>
       </div>
-      <div class="item prev">
-        <div class="grid-item">
+    </div>
+    <div class="item prev">
+      <div class="grid-item">
 
         <div class="popup">
           <img class="close-popup" src="/assets/svg/cross.svg" alt="Afsluiten">
@@ -76,20 +59,26 @@
         <div class="popup-overlay"></div>
 
         <div class="schema-lijst-container">
+
+
           <img class="close-lijst" src="/assets/svg/cross.svg" alt="Afsluiten">
-         <div class="schema-lijst">              </div>
+          <h2>Mijn schema's</h2>
+
+          <div class="schema-lijst"> </div>
+
         </div>
 
         <div class="launch-save-popup btn">Opslaan</div>
       </div>
-      </div>
-      <div class="button-container">
-        <div class="button"><img src="/assets/svg/arrow-circle-left.svg" alt="vorige"></i></div>
-        <div class="button"><img src="/assets/svg/arrow-circle-right.svg" alt="volgende"></div>
-      </div>
     </div>
-  
+    <div class="button-container">
+      <div class="button"><img src="/assets/svg/arrow-circle-left.svg" alt="vorige"></i></div>
+      <div class="button"><img src="/assets/svg/arrow-circle-right.svg" alt="volgende"></div>
+    </div>
+  </div>
 
-    <script src="script.js"></script>
-  </body>
+
+  <script src="script.js"></script>
+</body>
+
 </html>

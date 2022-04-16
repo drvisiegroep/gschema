@@ -9,8 +9,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const clearAllBtn = document.querySelector(".clearall-btn");
   const launchSavePopupBtn = document.querySelector(".launch-save-popup");
   const savePopup = document.querySelector(".popup");
+  const popupMessage = document.querySelector(".message");
   const savePopupOverlay = document.querySelector(".popup-overlay");
-  const schemaLijst = document.querySelector(".schema-lijst-container");
+  const schemaLijstContainer = document.querySelector(".schema-lijst-container");
+  const schemaLijst = document.querySelector(".schema-lijst");
   let timeOut;
 
 
@@ -18,7 +20,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   // Eventlisteners
   //
   listBtn.addEventListener("click", () => {
-    schemaLijst.classList.toggle('active');
+    schemaLijstContainer.classList.toggle('active');
     listSavedEntries();
   });
 
@@ -33,14 +35,18 @@ window.addEventListener("DOMContentLoaded", (event) => {
   savePopupOverlay.addEventListener("click", () => {
     savePopup.classList.remove("active");
     savePopupOverlay.classList.remove("active");
-    schemaLijst.classList.remove('active');
+    schemaLijstContainer.classList.remove('active');
   });
   
   closePopupBtn.addEventListener("click", () => {
     savePopup.classList.remove("active");
     savePopupOverlay.classList.remove("active");
-    schemaLijst.classList.remove('active');
+    schemaLijstContainer.classList.remove('active');
   });
+
+  closeLijstBtn.addEventListener("click", () => {
+    schemaLijstContainer.classList.remove('active');
+  })
 
   clearAllBtn.addEventListener("mouseup", () => {
     clearTimeout(timeOut);
@@ -106,7 +112,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   function listSavedEntries() {
     const items = { ...localStorage };
-    const schemaLijst = document.querySelector(".schema-lijst");
+
     list = "";
 
     for (const [itemName, value] of Object.entries(items)) {
