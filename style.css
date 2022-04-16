@@ -19,7 +19,7 @@
 .wrap{position: relative;}
 
 * {box-sizing:border-box}
-body{font-family: var(--main-font);margin: 0;padding: 8px;}
+body{font-family: var(--main-font);display: flex;flex-direction: column;align-content: center;justify-content: center;}
 
 .popup {display:none}
 .popup.active{display:flex;position:relative;background-color:#fff;padding:32px;border-radius:var(--default-border-radius);border:2px solid var(--fourth-color);z-index: 10;flex-direction: column;}
@@ -64,11 +64,11 @@ textarea.error:focus-visible{outline: 2px solid red;border: none;}
 
 /* https://codepen.io/YousifW/pen/LKBxZX */
 .items {}
-.items .item {position: absolute;top: 0;left: 0;min-width: 360px;height: 450px;overflow: hidden;transition: all 300ms ease-in-out;z-index: -1;opacity: 0;} 
+.items .item {position: absolute;top: 0;left: 0;min-width: 345px;height: 450px;overflow: hidden;transition: all 300ms ease-in-out;z-index: -1;opacity: 0;} 
 .item.active {opacity: 1;z-index: 3;}
 .item.prev {z-index: 2;opacity: 0;transform: translate(-125%, 0%);} 
-.item.next {z-index: 2;opacity:0;/*! transform: translate(25%, 0%); */}
-.items .button-container {position: absolute;top: 0;left: 0;/*! transform: translate(-50%, 0); */min-width:360px;z-index: 4;}
+.item.next {z-index: 2;opacity:0;}
+.items .button-container {position: absolute;top: 0;left: 0;min-width:345px;z-index: 4;}
 .button-container .button {height:50px;color: #fff;cursor: pointer;position: relative;transition: all 300ms ease-in-out;background-color:#fff;border-radius:50%;} 
 .button-container .button img {height:50px}
 .button-container .button:nth-child(1) {float: left;} 
