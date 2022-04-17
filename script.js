@@ -77,6 +77,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     }
     saveItem(saveName());
     popupMessage("je schema is goed opgeslagen.", "success");
+    savePopup.classList.remove("active");
   });
 
   schemaLijst.addEventListener("click", function (e) {
