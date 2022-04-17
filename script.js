@@ -22,11 +22,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
   //
   // Eventlisteners
   //
+
+  // mijn schema's
   listBtn.addEventListener("click", () => {
     schemaLijstContainer.classList.toggle("active");
     listSavedEntries();
   });
 
+  // Opslaan popup
   launchSavePopupBtn.addEventListener("click", () => {
     if (schemaValidation() == false) {
       popupMessage("Een of meerder velden zijn niet goed ingevuld.", "error");
@@ -37,31 +40,37 @@ window.addEventListener("DOMContentLoaded", (event) => {
     savePopupOverlay.classList.add("active");
   });
 
+  // save popup overlay
   savePopupOverlay.addEventListener("click", () => {
     savePopup.classList.remove("active");
     savePopupOverlay.classList.remove("active");
     schemaLijstContainer.classList.remove("active");
   });
 
+  // sluit popup
   closePopupBtn.addEventListener("click", () => {
     savePopup.classList.remove("active");
     savePopupOverlay.classList.remove("active");
     schemaLijstContainer.classList.remove("active");
   });
 
+  // sluit mijn schema's
   closeLijstBtn.addEventListener("click", () => {
     schemaLijstContainer.classList.remove("active");
   });
 
+  // sluit bericht popup
   closeMessageBtn.addEventListener("click", () => {
     messagePopup.classList.remove("active");
   });
 
+  // verwijder alles (reset timer wanneer te vroeg losgelaten)
   clearAllBtn.addEventListener("mouseup", () => {
     clearTimeout(timeOut);
     return;
   });
 
+  // verwijder alles (run als 2 secs ingehouden.)
   clearAllBtn.addEventListener("mousedown", () => {
     timeOut = window.setTimeout(() => {
       clearAll();
@@ -71,6 +80,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     return;
   });
 
+  // Opslaan (button op popup)
   saveBtn.addEventListener("click", () => {
     if (schemaValidation() == false) {
       return false;
@@ -80,6 +90,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     savePopup.classList.remove("active");
   });
 
+  // verwijder item in schema lijst
   schemaLijst.addEventListener("click", function (e) {
     if (e.target && e.target.className == "remove-btn btn") {
       const itemDataName = e.target.parentNode.dataset.name;
@@ -105,6 +116,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     localStorage.clear();
   }
 
+  // maak json van alle ingevoerde gegevens en stringify voor localstorage
   function serializeEntries() {
     let textareas = document.querySelectorAll(".schema-input");
     let entries = {};
@@ -115,20 +127,24 @@ window.addEventListener("DOMContentLoaded", (event) => {
     return JSON.stringify(entries);
   }
 
+  // Ingevoerde naam voor schema save
   function saveName() {
     const saveName = document.querySelector("#schema-naam").value;
     return saveName;
   }
 
+  // verwijder een item uit localstorage
   function removeItem(name) {
     localStorage.removeItem(name);
   }
 
+  // ingevoerde data saneren  
   function strip(html) {
     let doc = new DOMParser().parseFromString(html, "text/html");
     return doc.body.textContent || "";
   }
 
+  // lijst van schema's in localstorage laten zien.
   function listSavedEntries() {
     const items = { ...localStorage };
 
@@ -151,10 +167,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
     }
   }
 
+  // Item met naam en data invoeren in localstorage
   function saveItem(name) {
     localStorage.setItem(name, serializeEntries());
   }
 
+  // Kijken of er geen lege velden zijn en een bool teruggeven.
   function schemaValidation() {
     const textareas = document.querySelectorAll(".schema-input");
     const validInputs = Array.from(textareas).filter(
