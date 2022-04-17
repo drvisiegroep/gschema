@@ -43,38 +43,50 @@
       <div class="grid-item">
 
         <div class="popup">
-          <img class="close-popup" src="assets/svg/cross.svg" alt="Afsluiten">
+          <button><img class="close-popup" src="assets/svg/cross.svg" alt="Afsluiten"></button>
           <div class="popup-wrap">
             <h2>Geef je schema een naam.</h2>
             <input type="text" name="schema-naam" id="schema-naam" />
             <div class="buttons">
               <div class="save-btn btn">Opslaan</div>
-              <div class="list-btn btn">Mijn schema's</div>
+
               <div class="clearall-btn btn">
                 <div class="loader"></div>
                 <span>Verwijder alles</span>
               </div>
             </div>
+            <p class="clearall-note">*Om alles te verwijderen knop 3 seconden ingedrukt houden.</p>
           </div>
         </div>
 
         <div class="popup-overlay"></div>
 
-        <div class="schema-lijst-container">
-          <img class="close-lijst" src="assets/svg/cross.svg" alt="Afsluiten">
-          <h2>Mijn schema's</h2>
-          <div class="schema-lijst"> </div>
-        </div>
+
 
         <div class="launch-save-popup btn">Opslaan</div>
+        
 
-        <div class="message"></div>
-
+        
       </div>
     </div>
     <div class="button-container">
-      <div class="button"><img src="assets/svg/arrow-circle-left.svg" alt="vorige"></i></div>
+      <div class="button"><img src="assets/svg/arrow-circle-left.svg" alt="vorige"></div>
+      <div class="list-btn btn">Mijn schema's</div>
       <div class="button"><img src="assets/svg/arrow-circle-right.svg" alt="volgende"></div>
+    </div>
+
+    <div class="message-popup">
+      <button class="close-message"><img  src="assets/svg/cross.svg" alt="Afsluiten"></button>
+      <h2>Bericht</h2>
+      <div class="message-container">
+      <div class="message"></div>
+    </div>
+    </div>
+
+    <div class="schema-lijst-container">
+      <button class="close-lijst"><img  src="assets/svg/cross.svg" alt="Afsluiten"></button>
+      <h2>Mijn schema's</h2>
+      <div class="schema-lijst"> </div>
     </div>
   </div>
 

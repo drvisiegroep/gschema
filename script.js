@@ -6,9 +6,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const saveBtn = document.querySelector(".save-btn");
   const closePopupBtn = document.querySelector(".close-popup");
   const closeLijstBtn = document.querySelector(".close-lijst");
+  const closeMessageBtn = document.querySelector(".close-message");
   const clearAllBtn = document.querySelector(".clearall-btn");
   const launchSavePopupBtn = document.querySelector(".launch-save-popup");
   const savePopup = document.querySelector(".popup");
+  const messagePopup = document.querySelector(".message-popup");
   const message = document.querySelector(".message");
   const savePopupOverlay = document.querySelector(".popup-overlay");
   const schemaLijstContainer = document.querySelector(
@@ -27,7 +29,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   launchSavePopupBtn.addEventListener("click", () => {
     if (schemaValidation() == false) {
-      popupMessage("Een of meerder velden zijn niet goed ingevuld.");
+      popupMessage("Een of meerder velden zijn niet goed ingevuld.", "error");
       return false;
     }
     message.classList.remove("active");
@@ -51,6 +53,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
     schemaLijstContainer.classList.remove("active");
   });
 
+  closeMessageBtn.addEventListener("click", () => {
+    messagePopup.classList.remove("active");
+  });
+
   clearAllBtn.addEventListener("mouseup", () => {
     clearTimeout(timeOut);
     return;
@@ -70,6 +76,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       return false;
     }
     saveItem(saveName());
+    popupMessage("je schema is goed opgeslagen.", "success");
   });
 
   schemaLijst.addEventListener("click", function (e) {
@@ -84,8 +91,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
   // Functions
   //
 
-  function popupMessage(text) {
-    message.classList.add("active");
+
+  // string text, string messageClass ('error', 'success')
+  function popupMessage(text, messageClass) {
+    message.classList = 'message';
+    message.classList.add(messageClass);
+    messagePopup.classList.add('active');
+    
     message.textContent = text;
   }
   function clearAll() {
@@ -169,6 +181,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
   // - berichtenlijst een close button geven
   // - betere popup verzinnen voor de opgeslagen lijst?
   // - betere feedback voor gebruiker wanneer er een actie is gebeurd(saved, deleted, veld x niet goed ingevuld. etc.)
+  // - een functie maken voor alle close buttons?
+
 
   //
   // Slidertest
