@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", (event) => {
   //
-  // Declerations
+  // Declarations
   //
   const listBtn = document.querySelector(".list-btn");
   const saveBtn = document.querySelector(".save-btn");
@@ -13,9 +13,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const messagePopup = document.querySelector(".message-popup");
   const message = document.querySelector(".message");
   const savePopupOverlay = document.querySelector(".popup-overlay");
-  const schemaLijstContainer = document.querySelector(
-    ".schema-lijst-container"
-  );
+  const schemaLijstContainer = document.querySelector(".schema-lijst-container");
   const schemaLijst = document.querySelector(".schema-lijst");
   let timeOut;
 
@@ -85,9 +83,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
     if (schemaValidation() == false) {
       return false;
     }
+    if (saveName() == "") {
+      popupMessage("Je hebt geen naam ingevuld.", "error");
+      return false;
+    }
     saveItem(saveName());
     popupMessage("je schema is goed opgeslagen.", "success");
     savePopup.classList.remove("active");
+    savePopupOverlay.classList.remove("active");
   });
 
   // verwijder item in schema lijst
@@ -99,10 +102,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
     }
   });
 
+
   //
   // Functions
   //
-
 
   // string text, string messageClass ('error', 'success')
   function popupMessage(text, messageClass) {
@@ -169,7 +172,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   // Item met naam en data invoeren in localstorage
   function saveItem(name) {
-    localStorage.setItem(name, serializeEntries());
+      localStorage.setItem(name, serializeEntries());
   }
 
   // Kijken of er geen lege velden zijn en een bool teruggeven.

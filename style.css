@@ -16,7 +16,7 @@
     --default-padding:16px;
     --default-animation: all 0.3s ease;
 }
-.wrap{position: relative;}
+.container{position: relative;}
 button{background: none;border:none;outline:none;}
 
 * {box-sizing:border-box}
@@ -24,7 +24,7 @@ body{font-family: var(--main-font);display: flex;flex-direction: column;align-co
 
 .popup {display:none}
 .popup.active{width:330px;max-width:330px;display:flex;position:relative;background-color:#fff;padding:32px;border-radius:var(--default-border-radius);border:2px solid var(--fourth-color);z-index: 10;flex-direction: column;}
-.popup-wrap{position: relative;}
+.popup-container{position: relative;}
 .popup h2 {font-size:20px}
 .popup .close-btn{height:20px;align-self: end;cursor: pointer;}
 .popup input {width: 100%;border-radius: var(--default-border-radius);outline: none;border: 2px solid var(--third-color);padding: 8px 16px;}
